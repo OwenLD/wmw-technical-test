@@ -9,6 +9,74 @@
 import {register} from '@shopify/theme-sections';
 import Flickity from 'flickity';
 
+class AddVariant {
+  /**
+   * 
+   * @param {DOM node} button - add to cart button
+   */
+  constructor(button) {
+    this.button = button;
+    this.id = this.button.dataset.variantId;
+    this.qty = this.button.dataset.quantity;
+  }
+
+  bindEventListeners() {
+    // Add event click event to the button
+    this.button.addEventListener('click', this.handle.bind(this), false);
+  }
+
+  /**
+   * 
+   * @param {object} e - event object
+   */
+  handle(e) {
+    // Prevent the defualt behaviour
+    e.preventDefault();
+
+    this.add().then(res => {
+      // Do something with the response (update cart total, notification etc.)
+      // console.log(res);
+    })
+  }
+
+  add() {
+    return new Promise(resolve => {
+      this.request(resolve)
+    })
+  }
+
+  /**
+   * @param {function} success
+   */
+  request(success) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/cart/add.js', true);
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState > 3) success(xhr);
+    };
+    xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.send(JSON.stringify({
+      items: [
+        {
+          quantity: this.qty,
+          id: this.id
+        }
+      ]
+    }));
+  }
+}
+
+const buttons = document.querySelectorAll('[js-ajax-cart="addToCart"]');
+
+[...buttons].forEach(el => {
+  const addVariant = new AddVariant(
+    el
+  );
+
+  addVariant.bindEventListeners();
+});
+
 /**
  * Featured collection constructor
  * Executes on page load as well as Theme Editor `section:load` events.
