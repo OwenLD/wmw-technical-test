@@ -36,7 +36,7 @@
                   <img
                     class="product-card__image"
                     src="{{ product.featured_image | img_url: 'large' }}"
-                    alt=""
+                    alt="{{ product.featured_image.alt }}"
                   >
                 {% endif %}
   
