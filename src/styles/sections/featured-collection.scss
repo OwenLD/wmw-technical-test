@@ -9,6 +9,48 @@
 
   &__heading {
     color: $COLOR_TEXT_PRIMARY;
+    text-align: center;
+    font-weight: $WEIGHT_BOLD;
+    font-size: 28px;
+    margin-bottom: $SPACING_S;
+  }
+
+  &__description {
+    color: $COLOR_TEXT_LIGHT;
+    text-align: center;
+    font-weight: $WEIGHT_LIGHT;
+    font-size: 14px;
+    line-height: $LINE_HEIGHT_BODY;
+    padding-bottom: $SPACING_L;
+  }
+
+  @include mq($from: medium) {
+    &__heading {
+      font-size: 34px;
+      margin-bottom: $SPACING_M;
+    }
+
+    &__description-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__description {
+      flex-basis: 50%;
+      font-size: 16px;
+      padding-bottom: $SPACING_XL;
+    }
+  }
+
+  @include mq($from: large) {
+    &__heading {
+      font-size: 40px;
+    }
+
+    &__description {
+      font-size: 18px;
+      padding-bottom: $SPACING_2XL;
+    }
   }
 
   .flickity-prev-next-button {

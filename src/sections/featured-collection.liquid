@@ -20,9 +20,11 @@
           {{ collection.title | escape }}
         </h2>
 
-        <p>
-          {{ collection.description }}
-        </p>
+        <div class="featured-collection__description-wrapper">
+          <p class="featured-collection__description">
+            {{ collection.description }}
+          </p>
+        </div>
 
         <div class="featured-collection__carousel">
           {% for product in collection.products limit: 8 %}
