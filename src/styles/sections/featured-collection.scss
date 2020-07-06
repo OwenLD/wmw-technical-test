@@ -10,4 +10,17 @@
   &__heading {
     color: $COLOR_TEXT_PRIMARY;
   }
+
+  .flickity-prev-next-button {
+    background-color: transparent;
+    top: 40%;
+
+    &.previous {
+      left: -40px;
+    }
+  
+    &.next {
+      right: -40px;
+    }
+  }
 }

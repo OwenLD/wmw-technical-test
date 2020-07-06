@@ -16,7 +16,7 @@
   <div class="container">
     <div class="row">
       <div class="col xs12">
-        <h2>
+        <h2 class="featured-collection__heading">
           {{ collection.title | escape }}
         </h2>
 
@@ -24,34 +24,40 @@
           {{ collection.description }}
         </p>
 
-        {% for product in collection.products limit: 8 %}
-          {% assign current_variant = product.selected_or_first_available_variant %}
-
-          <a class="product-card" href="{{ product.url | within: collection }}">
-            <div>
-              {% if product.featured_image != blank %}
-                {{ product.featured_image | img_url: 'large' | img_tag }}
-              {% endif %}
-
-              <span
-                class="product-card__add-to-cart"
-                data-quantity="1"
-                data-variant-id="{{ current_variant.id }}"
-                js-ajax-cart="addToCart"
-              >
-                Add to cart
-              </span>
-            </div>
-
-            <div>
-              <p>{{ product.title | escape }}</p>
-
-              <span>
-                {% include 'product-price' %}
-              </span>
-            </div>
-          </a>
-        {% endfor %}
+        <div class="featured-collection__carousel">
+          {% for product in collection.products limit: 8 %}
+            {% assign current_variant = product.selected_or_first_available_variant %}
+  
+            <a class="product-card" href="{{ product.url | within: collection }}">
+              <div class="product-card__image-wrapper">
+                {% if product.featured_image != blank %}
+                  <img
+                    class="product-card__image"
+                    src="{{ product.featured_image | img_url: 'large' }}"
+                    alt=""
+                  >
+                {% endif %}
+  
+                <span
+                  class="product-card__add-to-cart"
+                  data-quantity="1"
+                  data-variant-id="{{ current_variant.id }}"
+                  js-ajax-cart="addToCart"
+                >
+                  Add to cart
+                </span>
+              </div>
+  
+              <div>
+                <p>{{ product.title | escape }}</p>
+  
+                <span>
+                  {% include 'product-price' %}
+                </span>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
       </div>
     </div>
   </div>

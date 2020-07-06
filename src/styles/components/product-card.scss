@@ -11,18 +11,26 @@
   position: relative;
   text-decoration: none;
   width: 100%;
+  padding: 0 $SPACING_M;
 
-  &__add-to-cart {
-    background-color: $COLOR_SUPPORT_ERROR;
-    color: $COLOR_TEXT_INVERSE;
-    padding: $SPACING_S $SPACING_XL;
-    text-decoration: none;
+  &__image-wrapper {
+    position: relative;
   }
 
-  @include mq($from: small) {
-    &__add-to-cart {
-      background-color: $COLOR_PRIMARY;
-    }
+  &__image {
+    width: 100%;
+  }
+
+  &__add-to-cart {
+    background-color: $COLOR_TEXT_INVERSE;
+    color: $COLOR_PRIMARY;
+    padding: $SPACING_S $SPACING_XL;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
+    right: 18px;
   }
 
   @include mq($from: large) {
