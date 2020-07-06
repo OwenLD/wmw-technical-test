@@ -11,7 +11,6 @@ import Flickity from 'flickity';
 
 class AddVariant {
   /**
-   * 
    * @param {DOM node} button - add to cart button
    */
   constructor(button) {
@@ -26,7 +25,6 @@ class AddVariant {
   }
 
   /**
-   * 
    * @param {object} e - event object
    */
   handle(e) {
@@ -109,9 +107,7 @@ register('featured-collection', {
       }
     );
     
-    /**
-     * Carousel cells loading with incorrect height, this seems to fix
-     */
+    // Carousel cells loading with incorrect height, this seems to fix
     window.addEventListener('load', () => {
       flkty.resize();
     });
