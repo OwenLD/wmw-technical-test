@@ -48,6 +48,10 @@
                 >
                   Add to cart
                 </span>
+
+                {% if product.tags contains 'badge: sale' %}
+                  <div class="product-card__sale">Sale</div>
+                {% endif %}
               </div>
   
               <div>

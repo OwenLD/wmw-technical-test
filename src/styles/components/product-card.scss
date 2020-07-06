@@ -43,6 +43,18 @@
     right: 18px;
   }
 
+  &__sale {
+    background-color: $COLOR_BUTTON;
+    color: $COLOR_LINK;
+    padding: $SPACING_S $SPACING_M;
+    font-weight: $WEIGHT_BOLD;
+    font-size: 14px;
+    line-height: $LINE_HEIGHT_CAPTION;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
   &__title {
     color: $COLOR_TEXT_PRIMARY;
     font-size: 18px;

@@ -12,6 +12,7 @@
   color: $COLOR_LINK;
   padding: $SPACING_S $SPACING_M;
   font-size: 14px;
+  font-weight: $WEIGHT_BOLD;
   line-height: $LINE_HEIGHT_CAPTION;
 
   @include mq($from: medium) {
