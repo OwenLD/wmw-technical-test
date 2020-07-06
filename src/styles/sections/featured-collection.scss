@@ -24,6 +24,17 @@
     padding-bottom: $SPACING_L;
   }
 
+  &__carousel {
+    margin-bottom: $SPACING_3XL;
+    padding-bottom: $SPACING_XL;
+  }
+
+  &__cta {
+    display: flex;
+    justify-content: center;
+    padding-top: $SPACING_L;
+  }
+
   @include mq($from: medium) {
     &__heading {
       font-size: 34px;
@@ -51,6 +62,10 @@
       font-size: 18px;
       padding-bottom: $SPACING_2XL;
     }
+
+    &__cta {
+      padding-top: $SPACING_3XL;
+    }
   }
 
   .flickity-prev-next-button {
@@ -64,5 +79,10 @@
     &.next {
       right: -40px;
     }
+  }
+
+  .flickity-page-dots .dot {
+    width: 7px;
+    height: 7px;
   }
 }

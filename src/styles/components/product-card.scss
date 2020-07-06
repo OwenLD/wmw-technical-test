@@ -13,6 +13,12 @@
   width: 100%;
   padding: 0 $SPACING_M;
 
+  &:hover {
+    #{$parent}__add-to-cart {
+      display: block;
+    }
+  }
+
   &__image-wrapper {
     position: relative;
   }
@@ -22,9 +28,13 @@
   }
 
   &__add-to-cart {
+    display: none;
     background-color: $COLOR_TEXT_INVERSE;
-    color: $COLOR_PRIMARY;
+    color: $COLOR_TEXT_PRIMARY;
     padding: $SPACING_S $SPACING_XL;
+    font-weight: $WEIGHT_BOLD;
+    font-size: 18px;
+    line-height: $LINE_HEIGHT_BODY;
     text-align: center;
     text-decoration: none;
     position: absolute;
@@ -33,7 +43,31 @@
     right: 18px;
   }
 
+  &__title {
+    color: $COLOR_TEXT_PRIMARY;
+    font-size: 18px;
+    font-weight: $WEIGHT_BOLD;
+  }
+
+  &__price {
+    color: $COLOR_TEXT_LIGHT;
+    font-size: 18px;
+    font-weight: $WEIGHT_LIGHT;
+  }
+
+  @include mq($from: small) {
+    width: 50%;
+  }
+
+  @include mq($from: medium) {
+    width: calc(100% / 3);
+  }
+
   @include mq($from: large) {
     width: 25%;
+
+    &__title {
+      font-size: 21px;
+    }
   }
 }

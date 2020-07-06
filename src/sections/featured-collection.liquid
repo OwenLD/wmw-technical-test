@@ -51,14 +51,20 @@
               </div>
   
               <div>
-                <p>{{ product.title | escape }}</p>
+                <p class="product-card__title">{{ product.title | escape }}</p>
   
-                <span>
+                <span class="product-card__price">
                   {% include 'product-price' %}
                 </span>
               </div>
             </a>
           {% endfor %}
+        </div>
+
+        <div class="featured-collection__cta">
+          <a href="{{ collection.url }}" class="button">
+            View collections
+          </a>
         </div>
       </div>
     </div>
